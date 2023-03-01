@@ -3,14 +3,15 @@
 
 #include <vector>
 #include <stdexcept>
+using namespace std;
 
 // Use inheritance from std::vector (choose public/private) as appropriate
 template <typename T>
-class Stack : public std::vector 
-{
+class Stack : public vector<T>  {
+
 public:
     Stack();
-    ~Stack();
+    // ~Stack();
     bool empty() const;
     size_t size() const;
     void push(const T& item);
@@ -18,11 +19,11 @@ public:
     const T& top() const; // throws std::underflow_error if empty
     // Add other members only if necessary
     std::vector<T> vec;
-    int top;
+    // int t;
 };
 
 template <typename T>
-Stack<T>::Stack() : stackSize(0) {}
+Stack<T>::Stack() {}
 
 template <typename T>
 bool Stack<T>::empty() const {
@@ -38,14 +39,16 @@ void Stack<T>::push(const T& item) { vec.push_back(item); }
 
 template <typename T> 
 void Stack<T>::pop() {
-    if (Stack<T>::empty()) throws std::underflow_error;
+    if (empty()) throw std::underflow_error ("Is Empty");
     vec.pop_back();
+
 }
 
 template <typename T>
 const T& Stack<T>::top() const {
-    if (Stack<T>::empty()) throws std::underflow_error;
+    if (empty()) throw std::underflow_error("Is Empty");
     return vec.back();
+
 }
 
 

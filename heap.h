@@ -85,6 +85,9 @@ void Heap<T,PComparator>::push(const T& item) {
   vec.push_back(item);
   //fix the heap
   up_trickle(size()-1);
+
+
+
 }
 
 // We will start top() for you to handle the case of 
@@ -141,14 +144,15 @@ void Heap<T,PComparator>::down_trickle(int index) {
   int curr = index;
 
   std::vector<int> children;
-  for (int i = 0; i < mary; i++) {
-    int temp = index*2+i+1;
-  }
 
-  for (int i = 0; i < mary; i++) {
-    if (children[i] < size() && vec[children[i]] > vec[curr]) curr = children[i];
-  }
-  
+for (int i = 0; i < mary; i++)
+{
+if ((2*index+i+1) < size() && vec[(2*index+i+1)] > vec[curr]) {
+            curr = (2*index+i+1);
+        }
+}
+
+ 
   if (curr != index) {
     std::swap(vec[index], vec[curr]);
     down_trickle(curr);
