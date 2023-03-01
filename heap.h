@@ -66,7 +66,7 @@ private:
   void up_trickle(int index);
   
   std::vector<T> vec;
-  int mary;
+  int mary; //m_ary @param m ary-ness of heap tree (default to 2)
   PComparator pc;
 };
 
