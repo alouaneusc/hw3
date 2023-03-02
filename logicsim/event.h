@@ -14,7 +14,7 @@ typedef struct EventLess {
 
  bool operator()(Event* first, Event* second)
 {
-return first -> time < second -> time;
+return first->time < second->time;
 }
 
 } EventLess;

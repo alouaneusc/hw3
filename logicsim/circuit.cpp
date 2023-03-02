@@ -112,15 +112,15 @@ bool Circuit::parse(const char* fname)
                 //Add code here to support the NOT gate type
                 if(s_type == "NOT")
                 {
-                std::string s_in1;
-                getline(ss, s_in1, ','); 
-                std::string s_output;
-                getline(ss, s_output, ','); 
-                m_gates.push_back(new NotGate(m_wires[stoi(s_in1)], m_wires[stoi(s_output)]));
+                             std::string s_in1;
+                             getline(ss, s_in1, ','); 
+                             std::string s_output;
+                             getline(ss, s_output, ','); 
+                             m_gates.push_back(new NotGate(m_wires[stoi(s_in1)], m_wires[stoi(s_output)]));
 
+                 }
+                 }
                 }
-            }
-        }
         if(line == "INJECT")
         {
             std::string t_line;
@@ -136,6 +136,7 @@ bool Circuit::parse(const char* fname)
                 getline(ss, s_wire, ',');
                 std::string s_state;
                 getline(ss, s_state, ',');
+                
             	Event* e = new Event {static_cast<uint64_t>(stoi(s_time)),m_wires[stoi(s_wire)],s_state[0]};
                 //std::cout << s_time << "," << s_wire << "," << s_state << std::endl;
             	m_pq.push(e);
